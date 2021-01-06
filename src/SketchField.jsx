@@ -13,6 +13,7 @@ import Circle from "./circle";
 import Pan from "./pan";
 import Tool from "./tools";
 import RectangleLabel from "./rectangle-label";
+import DottedLine from "./dottedLine";
 import DefaultTool from "./defaul-tool";
 
 const fabric = require("fabric").fabric;
@@ -121,6 +122,7 @@ class SketchField extends PureComponent {
     this._tools[Tool.RectangleLabel] = new RectangleLabel(fabricCanvas);
     this._tools[Tool.Circle] = new Circle(fabricCanvas);
     this._tools[Tool.Pan] = new Pan(fabricCanvas);
+    this._tools[Tool.DottedLine] = new DottedLine(fabricCanvas);
     this._tools[Tool.DefaultTool] = new DefaultTool(fabricCanvas);
   };
 

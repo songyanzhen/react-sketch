@@ -1,11 +1,12 @@
 export default {
-  Circle: 'circle',
-  Line: 'line',
-  Arrow: 'arrow',
-  Pencil: 'pencil',
-  Rectangle: 'rectangle',
-  RectangleLabel: 'rectangle-label',
-  Select: 'select',
-  Pan: 'pan',
-  DefaultTool: 'default-tool',
-}
+  Circle: "circle",
+  Line: "line",
+  Arrow: "arrow",
+  Pencil: "pencil",
+  Rectangle: "rectangle",
+  RectangleLabel: "rectangle-label",
+  Select: "select",
+  Pan: "pan",
+  DottedLine: "dottedLine",
+  DefaultTool: "default-tool",
+};
