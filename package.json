@@ -1,7 +1,7 @@
 {
-  "name": "react-sketch2",
+  "name": "react-sketch3",
   "version": "0.5.7",
-  "description": "Sketch Element for React based applications, backed-up by fabricjs as its core",
+  "description": "This project is based on react-sketch and react-sketch2. And add some custom elements for my daily use. Sketch Element for React based applications, backed-up by fabricjs as its core",
   "keywords": [
     "react",
     "canvas",
@@ -10,15 +10,15 @@
     "fabric.js"
   ],
   "author": {
-    "name": "X5Engine",
-    "email": "Contact@x5engine.com"
+    "name": "songyanzhen",
+    "email": "song_yz@buaa.edu.com"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/x5engine/react-sketch.git"
+    "url": "https://github.com/songyanzhen/react-sketch.git"
   },
   "bugs": {
-    "url": "https://github.com/x5engine/react-sketch/issues"
+    "url": "https://github.com/songyanzhen/react-sketch/issues"
   },
   "license": "MIT",
   "main": "./dist",
