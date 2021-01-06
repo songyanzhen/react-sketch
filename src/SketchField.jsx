@@ -79,6 +79,8 @@ class SketchField extends PureComponent {
     className: PropTypes.string,
     // Style options to pass to container div of canvas
     style: PropTypes.object,
+    // customCursor
+    cursor: PropTypes.string,
   };
 
   static defaultProps = {
@@ -102,6 +104,7 @@ class SketchField extends PureComponent {
     onObjectMoving: () => null,
     onObjectScaling: () => null,
     onObjectRotating: () => null,
+    cursor: "default",
   };
 
   state = {
@@ -356,6 +359,17 @@ class SketchField extends PureComponent {
     if (!color) return;
     let canvas = this._fc;
     canvas.setBackgroundColor(color, () => canvas.renderAll());
+  };
+
+  /**
+   * Sets the cursor for this sketch
+   * @param cursor
+   */
+  _cursor = (cursor) => {
+    if (!cursor) return;
+    let canvas = this._fc;
+    canvas.freeDrawingCursor = cursor;
+    canvas.defaultCursor = cursor;
   };
 
   /**
@@ -632,7 +646,14 @@ class SketchField extends PureComponent {
   };
 
   componentDidMount = () => {
-    let { tool, value, undoSteps, defaultValue, backgroundColor } = this.props;
+    let {
+      tool,
+      value,
+      undoSteps,
+      defaultValue,
+      backgroundColor,
+      cursor,
+    } = this.props;
 
     let canvas = (this._fc = new fabric.Canvas(
       this._canvas /*, {
@@ -676,6 +697,9 @@ class SketchField extends PureComponent {
     canvas.on("object:rotating", (e) =>
       this.callEvent(e, this._onObjectRotating)
     );
+
+    canvas.freeDrawingCursor = cursor;
+    canvas.defaultCursor = cursor;
     // IText Events fired on Adding Text
     // canvas.on("text:event:changed", console.log)
     // canvas.on("text:selection:changed", console.log)
@@ -704,8 +728,6 @@ class SketchField extends PureComponent {
 
     if (this.props.tool !== prevProps.tool) {
       this._selectedTool = this._tools[this.props.tool];
-      //Bring the cursor back to default if it is changed by a tool
-      this._fc.defaultCursor = "default";
       if (this._selectedTool) {
         this._selectedTool.configureCanvas(this.props);
       }
@@ -723,6 +745,10 @@ class SketchField extends PureComponent {
 
     if (this.props.backgroundColor !== prevProps.backgroundColor) {
       this._backgroundColor(this.props.backgroundColor);
+    }
+
+    if (this.props.cursor !== prevProps.cursor) {
+      this._cursor(this.props.cursor);
     }
 
     if (

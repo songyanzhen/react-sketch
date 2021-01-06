@@ -72,6 +72,7 @@ Configuration Options
 | defaultValue     | JSON                 |                | Default initial data, to load. If value is set then value will be loaded instead                                                             |
 | widthCorrection  | Number               | 2              | Specify some width correction which will be applied on resize of canvas, this will help to correct some possible border on the canvas style  |
 | heightCorrection | Number               | 0              | Specify some height correction which will be applied on resize of canvas, this will help to correct some possible border on the canvas style |
+| cursor           | String               | default        | Set the cursor for the sketch                                                                                                                |
 
 Available tools
 
