@@ -731,7 +731,6 @@ class SketchField extends PureComponent {
     // canvas.on("text:selection:changed", console.log)
     // canvas.on("text:editing:entered", console.log)
     // canvas.on("text:editing:exited", console.log)
-    canvas.enablePointerEvents = true;
 
     if (enablePressureBrush) {
       const brush = new fabric.PSBrush(canvas);
@@ -774,7 +773,7 @@ class SketchField extends PureComponent {
     ) {
       if (this._selectedTool) {
         this._selectedTool.configureCanvas(this.props);
-        if (enablePressureBrush) {
+        if (this.props.enablePressureBrush) {
           this._brush(this.props.lineWidth, this.props.lineColor);
         }
       }
