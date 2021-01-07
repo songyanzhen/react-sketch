@@ -57,34 +57,36 @@ class SketchFieldDemo extends React.Component {
 
 Configuration Options
 
-| Option           | Type                 | Default        | Description                                                                                                                                  |
-| ---------------- | -------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| tool             | Enumeration (string) | pencil         | The tool to use, can be select, pencil, circle, rectangle, pan                                                                               |
-| lineColor        | String               | black          | The color of the line                                                                                                                        |
-| lineWidth        | Number               | 1              | The width of the line                                                                                                                        |
-| fillColor        | String               | transparent    | The fill color (hex format) of the shape when applicable (e.g. circle)                                                                       |
-| backgroundColor  | String               | transparent    | The the background color of the sketch in hex or rgba                                                                                        |
-| undoSteps        | Number               | 15             | number of undo/redo steps to maintain                                                                                                        |
-| imageFormat      | String               | png            | image format when calling toDataURL, can be png or jpeg                                                                                      |
-| width            | Number               | No Value(null) | Set/control the canvas width, if left empty the sketch will scale to parent element                                                          |
-| height           | Number               | 512            | Set/control the canvas height, if left empty the sketch will take a reasonable default height                                                |
-| value            | JSON                 |                | Property to utilize and handle the sketch data as controlled component                                                                       |
-| defaultValue     | JSON                 |                | Default initial data, to load. If value is set then value will be loaded instead                                                             |
-| widthCorrection  | Number               | 2              | Specify some width correction which will be applied on resize of canvas, this will help to correct some possible border on the canvas style  |
-| heightCorrection | Number               | 0              | Specify some height correction which will be applied on resize of canvas, this will help to correct some possible border on the canvas style |
-| cursor           | String               | default        | Set the cursor for the sketch                                                                                                                |
+| Option              | Type                 | Default        | Description                                                                                                                                  |
+| ------------------- | -------------------- | -------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
+| tool                | Enumeration (string) | pencil         | The tool to use, can be select, pencil, circle, rectangle, pan                                                                               |
+| lineColor           | String               | black          | The color of the line                                                                                                                        |
+| lineWidth           | Number               | 1              | The width of the line                                                                                                                        |
+| fillColor           | String               | transparent    | The fill color (hex format) of the shape when applicable (e.g. circle)                                                                       |
+| backgroundColor     | String               | transparent    | The the background color of the sketch in hex or rgba                                                                                        |
+| undoSteps           | Number               | 15             | number of undo/redo steps to maintain                                                                                                        |
+| imageFormat         | String               | png            | image format when calling toDataURL, can be png or jpeg                                                                                      |
+| width               | Number               | No Value(null) | Set/control the canvas width, if left empty the sketch will scale to parent element                                                          |
+| height              | Number               | 512            | Set/control the canvas height, if left empty the sketch will take a reasonable default height                                                |
+| value               | JSON                 |                | Property to utilize and handle the sketch data as controlled component                                                                       |
+| defaultValue        | JSON                 |                | Default initial data, to load. If value is set then value will be loaded instead                                                             |
+| widthCorrection     | Number               | 2              | Specify some width correction which will be applied on resize of canvas, this will help to correct some possible border on the canvas style  |
+| heightCorrection    | Number               | 0              | Specify some height correction which will be applied on resize of canvas, this will help to correct some possible border on the canvas style |
+| cursor              | String               | default        | Set the cursor for the sketch                                                                                                                |
+| enablePressureBrush | Boolean              | false          | Set the brush supported pressure                                                                                                             |
 
 Available tools
 
-| Tool      | Description                                                                                                                                                                              |
-| --------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Pencil    | Free drawing pencil                                                                                                                                                                      |
-| Line      | Gives you the ability to draw lines                                                                                                                                                      |
-| Rectangle | Create rectangles                                                                                                                                                                        |
-| Circle    | Create circles                                                                                                                                                                           |
-| Rectangle | Create Rectangles                                                                                                                                                                        |
-| Select    | Disables drawing and gives you the ability to modify existing elements in the canvas                                                                                                     |
-| Pan       | Disables drawing and gives you the ability to move the complete canvas at will, useful to adjust the canvas when zooming in or out (thank you [wmaillard](https://github.com/wmaillard)) |
+| Tool       | Description                                                                                                                                                                              |
+| ---------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Pencil     | Free drawing pencil                                                                                                                                                                      |
+| Line       | Gives you the ability to draw lines                                                                                                                                                      |
+| Rectangle  | Create rectangles                                                                                                                                                                        |
+| Circle     | Create circles                                                                                                                                                                           |
+| Rectangle  | Create Rectangles                                                                                                                                                                        |
+| DottedLine | Gives you the ability to draw dotted lines                                                                                                                                               |
+| Select     | Disables drawing and gives you the ability to modify existing elements in the canvas                                                                                                     |
+| Pan        | Disables drawing and gives you the ability to move the complete canvas at will, useful to adjust the canvas when zooming in or out (thank you [wmaillard](https://github.com/wmaillard)) |
 
 ## Examples
 

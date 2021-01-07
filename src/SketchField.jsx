@@ -15,6 +15,7 @@ import Tool from "./tools";
 import RectangleLabel from "./rectangle-label";
 import DottedLine from "./dottedLine";
 import DefaultTool from "./defaul-tool";
+import { PSBrush } from "@arch-inc/fabricjs-psbrush";
 
 const fabric = require("fabric").fabric;
 
@@ -82,6 +83,8 @@ class SketchField extends PureComponent {
     style: PropTypes.object,
     // customCursor
     cursor: PropTypes.string,
+    // enable pressure brush
+    enablePressureBrush: PropTypes.bool,
   };
 
   static defaultProps = {
@@ -106,6 +109,7 @@ class SketchField extends PureComponent {
     onObjectScaling: () => null,
     onObjectRotating: () => null,
     cursor: "default",
+    enablePressureBrush: false,
   };
 
   state = {
@@ -372,6 +376,20 @@ class SketchField extends PureComponent {
     let canvas = this._fc;
     canvas.freeDrawingCursor = cursor;
     canvas.defaultCursor = cursor;
+  };
+
+  /**
+   * Sets the brush for this sketch
+   * @param lineWidth
+   * @param lineColor
+   */
+  _brush = (lineWidth, lineColor) => {
+    if (!lineWidth || !lineColor) return;
+    let canvas = this._fc;
+    const brush = new fabric.PSBrush(canvas);
+    brush.width = lineWidth;
+    brush.color = lineColor;
+    canvas.freeDrawingBrush = brush;
   };
 
   /**
@@ -655,10 +673,16 @@ class SketchField extends PureComponent {
       defaultValue,
       backgroundColor,
       cursor,
+      enablePressureBrush,
+      lineColor,
+      lineWidth,
     } = this.props;
 
     let canvas = (this._fc = new fabric.Canvas(
-      this._canvas /*, {
+      this._canvas,
+      {
+        enablePointerEvents: true,
+      } /*, {
          preserveObjectStacking: false,
          renderOnAddRemove: false,
          skipTargetFind: true
@@ -707,6 +731,14 @@ class SketchField extends PureComponent {
     // canvas.on("text:selection:changed", console.log)
     // canvas.on("text:editing:entered", console.log)
     // canvas.on("text:editing:exited", console.log)
+    canvas.enablePointerEvents = true;
+
+    if (enablePressureBrush) {
+      const brush = new fabric.PSBrush(canvas);
+      brush.width = lineWidth;
+      brush.color = lineColor;
+      canvas.freeDrawingBrush = brush;
+    }
 
     this.disableTouchScroll();
 
@@ -742,6 +774,9 @@ class SketchField extends PureComponent {
     ) {
       if (this._selectedTool) {
         this._selectedTool.configureCanvas(this.props);
+        if (enablePressureBrush) {
+          this._brush(this.props.lineWidth, this.props.lineColor);
+        }
       }
     }
 
