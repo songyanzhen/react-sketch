@@ -178,8 +178,8 @@ class SketchField extends PureComponent {
           top: opts.top,
         });
         canvas.add(oImg);
-      },
-      { crossOrigin: "Anonymous" }
+      }
+      // { crossOrigin: "Anonymous" }
     );
   };
 
@@ -635,7 +635,7 @@ class SketchField extends PureComponent {
       });
     }
     let img = new Image();
-    img.setAttribute("crossOrigin", "anonymous");
+    // img.setAttribute("crossOrigin", "anonymous");
     img.onload = () =>
       canvas.setBackgroundImage(
         new fabric.Image(img),
