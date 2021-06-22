@@ -41,7 +41,7 @@ class History {
       if (this.current) {
         this.undoList.push(this.current);
       }
-      if (this.undoList.length > this.undoLimit) {
+      if (this.undoList.length >= this.undoLimit) {
         this.undoList.shift();
       }
       this.current = obj;
@@ -125,8 +125,8 @@ class History {
       /* eslint-disable no-console */
       console.log(
         this.undoList,
-        ' -> ' + this.current + ' <- ',
-        this.redoList.slice(0).reverse(),
+        " -> " + this.current + " <- ",
+        this.redoList.slice(0).reverse()
       );
     }
   }
